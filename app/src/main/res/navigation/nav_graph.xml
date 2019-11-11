@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_gragh"
+    app:startDestination="@id/main_fragment_dest">
+
+    <fragment
+        android:id="@+id/main_fragment_dest"
+        android:name="com.ybleeho.timeline.ui.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_writeFragment"
+            app:destination="@id/write_fragment_dest" />
+    </fragment>
+    <fragment
+        android:id="@+id/write_fragment_dest"
+        android:name="com.ybleeho.timeline.ui.write.WriteFragment"
+        android:label="fragment_write"
+        tools:layout="@layout/fragment_write" />
+</navigation>
