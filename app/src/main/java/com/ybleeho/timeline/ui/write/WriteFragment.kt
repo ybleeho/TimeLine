@@ -25,24 +25,5 @@ internal class WriteFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_write, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        toolbar.run {
-            setNavigationIcon(R.drawable.ic_arrow_back_black_24dp)
-            inflateMenu(R.menu.menu_save)
-            setOnMenuItemClickListener {
-                when (it.itemId) {
-                    R.id.menu_write -> {
-                        view?.findNavController()
-                            ?.navigate(R.id.main_fragment_dest)
-                    }
-                }
-                false
-            }
-            setNavigationOnClickListener { navController.popBackStack() }
-        }
-    }
-
 
 }

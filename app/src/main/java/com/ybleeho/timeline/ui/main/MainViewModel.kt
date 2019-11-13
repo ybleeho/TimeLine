@@ -1,11 +1,14 @@
 package com.ybleeho.timeline.ui.main
 
+import androidx.lifecycle.ViewModel
 import com.ybleeho.timeline.Event
 import com.ybleeho.timeline.base.BaseViewModel
 
-internal class MainViewModel : BaseViewModel() {
+class MainViewModel(): ViewModel(){
 
-    fun onClickWrite() {
+
+
+    init {
 
     }
 
