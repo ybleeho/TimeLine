@@ -17,6 +17,10 @@
     <fragment
         android:id="@+id/write_fragment_dest"
         android:name="com.ybleeho.timeline.ui.write.WriteFragment"
-        android:label="fragment_write"
-        tools:layout="@layout/fragment_write" />
+        android:label="@string/write"
+        tools:layout="@layout/fragment_write" >
+        <action
+            android:id="@+id/action_write_fragment_dest_to_main_fragment_dest"
+            app:destination="@id/main_fragment_dest" />
+    </fragment>
 </navigation>
