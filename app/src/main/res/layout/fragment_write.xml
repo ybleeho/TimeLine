@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.write.WriteFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+        <variable
+            name="viewmodel"
+            type="com.ybleeho.timeline.ui.write.WriteViewModel" />
+    </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -53,5 +57,4 @@
             app:layout_anchor="@id/refresh_layout"
             app:layout_anchorGravity="bottom|right|end" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-</FrameLayout>
+</layout>

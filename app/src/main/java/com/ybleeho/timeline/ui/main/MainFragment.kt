@@ -4,27 +4,38 @@ package com.ybleeho.timeline.ui.main
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-
 import com.ybleeho.timeline.R
-import com.ybleeho.timeline.base.BaseFragment
-import kotlinx.android.synthetic.main.toolbar.*
+import com.ybleeho.timeline.databinding.FragmentMainBinding
+import dagger.android.support.DaggerFragment
+import javax.inject.Inject
 
 
-internal class MainFragment : BaseFragment() {
+internal class MainFragment : DaggerFragment() {
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private val viewModel by viewModels<MainViewModel>{ viewModelFactory }
+
+    private lateinit var viewDataBinding: FragmentMainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
+        var root =  inflater.inflate(R.layout.fragment_main, container, false)
+
+        viewDataBinding = FragmentMainBinding.bind(root).apply {
+//            viewmodel = viewModel
+        }
         setHasOptionsMenu(true)
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        return viewDataBinding.root
+        // Inflate the layout for this fragment
     }
 
 

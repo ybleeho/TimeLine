@@ -7,26 +7,47 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresPermission
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 import com.ybleeho.timeline.R
 import com.ybleeho.timeline.base.BaseFragment
+import com.ybleeho.timeline.databinding.FragmentWriteBinding
 import com.ybleeho.timeline.ui.main.MainFragmentDirections
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.toolbar.*
+import javax.inject.Inject
 
 /**
  * A simple [Fragment] subclass.
  */
-internal class WriteFragment : BaseFragment() {
+class WriteFragment : DaggerFragment() {
+
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private val viewModel by viewModels<WriteViewModel> { viewModelFactory }
+
+    private lateinit var viewDataBinding: FragmentWriteBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_write, container, false)
+        var root =  inflater.inflate(R.layout.fragment_write, container, false)
+
+        viewDataBinding = FragmentWriteBinding.bind(root).apply {
+            viewmodel = viewModel
+        }
+        viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
+        return viewDataBinding.root
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

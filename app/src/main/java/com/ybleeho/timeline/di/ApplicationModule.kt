@@ -17,7 +17,7 @@ import javax.inject.Singleton
 import kotlin.annotation.AnnotationRetention.RUNTIME
 
 
-@Module(includes = [])
+@Module(includes = [ApplicationModuleBind::class])
 object ApplicationModule {
 
     @Qualifier
@@ -60,9 +60,9 @@ object ApplicationModule {
 
 
 
-//@Module
-//abstract class ApplicationModuleBind {
-//    @Singleton
-//    @Binds
-//    abstract fun bindRepository(repo: DefaultTimelineRepository): TimelineRepository
-//}
+@Module
+abstract class ApplicationModuleBind {
+    @Singleton
+    @Binds
+    abstract fun bindRepository(repo: DefaultTimelineRepository): TimelineRepository
+}

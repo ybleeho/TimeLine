@@ -13,7 +13,9 @@ import javax.inject.Singleton
 @Component(
     modules = [
         ApplicationModule::class,
-        AndroidSupportInjectionModule::class
+        AndroidSupportInjectionModule::class,
+        MainModule::class,
+        WriteModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<TimeLineApplication> {
