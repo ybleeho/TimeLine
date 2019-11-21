@@ -35,4 +35,5 @@ task clean(type: Delete) {
 
 ext {
     daggerVersion = '2.23.2'
+    androidXAnnotations = '1.0.1'
 }

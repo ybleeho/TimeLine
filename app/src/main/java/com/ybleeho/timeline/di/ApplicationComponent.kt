@@ -12,8 +12,10 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [
-    AndroidSupportInjectionModule::class
-    ])
+        ApplicationModule::class,
+        AndroidSupportInjectionModule::class
+    ]
+)
 interface ApplicationComponent : AndroidInjector<TimeLineApplication> {
 
     @Component.Factory
