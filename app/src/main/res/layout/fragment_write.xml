@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
     <data>
 
         <import type="android.view.View" />
@@ -34,6 +33,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Title"
                     android:maxLines="1"
+                    android:text="@={viewmodel.title}"
                     android:textStyle="bold" />
 
                 <EditText
@@ -41,6 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
                     android:gravity="top"
+                    android:text="@={viewmodel.description}"
                     android:hint="Enter your detail"/>
 
 
@@ -54,6 +55,7 @@
             android:layout_margin="16dp"
             android:src="@drawable/ic_done_black_24dp"
             app:fabSize="normal"
+            android:onClick="@{()->viewmodel.saveTimeLine()}"
             app:layout_anchor="@id/refresh_layout"
             app:layout_anchorGravity="bottom|right|end" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

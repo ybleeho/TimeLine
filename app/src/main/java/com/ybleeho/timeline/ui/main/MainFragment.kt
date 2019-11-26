@@ -31,7 +31,7 @@ internal class MainFragment : DaggerFragment() {
         var root =  inflater.inflate(R.layout.fragment_main, container, false)
 
         viewDataBinding = FragmentMainBinding.bind(root).apply {
-//            viewmodel = viewModel
+            viewmodel = viewModel
         }
         setHasOptionsMenu(true)
         return viewDataBinding.root

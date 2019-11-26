@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.ybleeho.timeline.EventObserver
 
 import com.ybleeho.timeline.R
 import com.ybleeho.timeline.base.BaseFragment
@@ -46,30 +47,38 @@ class WriteFragment : DaggerFragment() {
             viewmodel = viewModel
         }
         viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
+
+        viewModel.test()
+
         return viewDataBinding.root
 
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
 
-        setUpSaveFab()
+        setupNavigation()
         super.onActivityCreated(savedInstanceState)
     }
 
 
 
 
-    private fun setUpSaveFab() {
-        activity?.findViewById<FloatingActionButton>(R.id.save_timeline_fab)?.let{
-            it.setOnClickListener {
-                setupNavigation()
-            }
-        }
-    }
+//    private fun setUpSaveFab() {
+//        activity?.findViewById<FloatingActionButton>(R.id.save_timeline_fab)?.let{
+//            it.setOnClickListener {
+//                setupNavigation()
+//            }
+//        }
+//    }
 
     private fun setupNavigation() {
-        var action = WriteFragmentDirections.actionWriteFragmentDestToMainFragmentDest()
-        findNavController().navigate(action)
+
+
+        viewModel.timelineCreatedEvent.observe(this, EventObserver {
+            viewModel.test()
+            var action = WriteFragmentDirections.actionWriteFragmentDestToMainFragmentDest()
+            findNavController().navigate(action)
+        })
     }
 
 }
