@@ -42,6 +42,7 @@ internal class MainFragment : DaggerFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setUpAddFab()
+        viewModel.loadTimeline()
     }
 
 
