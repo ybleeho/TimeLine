@@ -23,6 +23,8 @@ internal class MainFragment : DaggerFragment() {
 
     private lateinit var viewDataBinding: FragmentMainBinding
 
+    private lateinit var listAdapter: MainAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,6 +44,7 @@ internal class MainFragment : DaggerFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setUpAddFab()
+        setUpListAdapter()
         viewModel.loadTimeline()
     }
 
@@ -72,6 +75,16 @@ internal class MainFragment : DaggerFragment() {
     private fun navigateToWrite() {
         var action = MainFragmentDirections.actionMainFragmentToWriteFragment()
         findNavController().navigate(action)
+    }
+
+    private fun setUpListAdapter() {
+        val viewModel = viewDataBinding.viewmodel
+        if(viewModel != null) {
+            listAdapter = MainAdapter(viewModel)
+            viewDataBinding.timelineList.adapter = listAdapter
+        }else {
+
+        }
     }
 
 }

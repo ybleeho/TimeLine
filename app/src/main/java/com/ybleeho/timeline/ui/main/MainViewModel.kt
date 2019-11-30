@@ -16,6 +16,8 @@ class MainViewModel @Inject constructor(
     private val timelineRepository: TimelineRepository
 ):ViewModel() {
 
+//    val arr = List(20) { Timeline() }
+
     private val _items = MutableLiveData<List<Timeline>>().apply { value = emptyList() }
     val items: LiveData<List<Timeline>> = _items
 
