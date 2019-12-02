@@ -15,14 +15,18 @@
             android:id="@+id/refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/timeline_list"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:items="@{viewmodel.items}"
-                />
-        </ScrollView>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+               <androidx.recyclerview.widget.RecyclerView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:id="@+id/timeline_list"
+                   app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                   app:items="@{viewmodel.items}"
+                   />
+           </LinearLayout>
+        </ScrollView>>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_fab"
             android:layout_width="wrap_content"

@@ -12,4 +12,6 @@ data class Timeline constructor(
     @PrimaryKey @ColumnInfo(name = "entryid") var id: String = UUID.randomUUID().toString()
 ){
 
+    val titleForList: String
+        get() = title
 }

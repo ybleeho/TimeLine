@@ -43,6 +43,9 @@ internal class MainFragment : DaggerFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
+
         setUpAddFab()
         setUpListAdapter()
         viewModel.loadTimeline()
